@@ -11,12 +11,14 @@ The simulator ties together the backend, agents, controls, navigation,
 and physics simulation.
 """
 
-from typing import Any, Dict, List, Optional, Union
-import numpy as np
+from typing import Any, Dict, List, Optional, Union, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
 # Type aliases
-ObservationDict = Dict[str, Union[bool, np.ndarray, Any]]
+ObservationDict = Dict[str, Union[bool, Any]]
 
 
 class Configuration:

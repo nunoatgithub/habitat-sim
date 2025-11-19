@@ -8,8 +8,10 @@ Geometry module for habitat_sim_api.
 Encapsulates global geometry utilities.
 """
 
-from typing import List, Tuple
-import numpy as np
+from typing import List, Tuple, Any, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
 class OBB:
@@ -34,8 +36,8 @@ RIGHT: Tuple[float, float, float] = (1.0, 0.0, 0.0)
 
 
 def build_catmull_rom_spline(
-    points: List[np.ndarray], num_samples: int = 100
-) -> List[np.ndarray]:
+    points: List[Any], num_samples: int = 100
+) -> List[Any]:
     """
     Build a Catmull-Rom spline through the given points.
     
@@ -49,7 +51,7 @@ def build_catmull_rom_spline(
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 
 
-def compute_gravity_aligned_MOBB(points: List[np.ndarray]) -> OBB:
+def compute_gravity_aligned_MOBB(points: List[Any]) -> OBB:
     """
     Compute minimum oriented bounding box aligned with gravity.
     
@@ -62,7 +64,7 @@ def compute_gravity_aligned_MOBB(points: List[np.ndarray]) -> OBB:
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 
 
-def get_transformed_bb(obb: OBB, transform: np.ndarray) -> OBB:
+def get_transformed_bb(obb: OBB, transform: Any) -> OBB:
     """
     Get a transformed oriented bounding box.
     

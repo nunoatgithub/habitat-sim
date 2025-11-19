@@ -4,8 +4,10 @@
 
 """Greedy geodesic follower for navigation."""
 
-from typing import Any, Dict, List, Optional
-import numpy as np
+from typing import Any, Dict, List, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
 class GreedyGeodesicFollower:
@@ -44,7 +46,7 @@ class GreedyGeodesicFollower:
         """
         raise NotImplementedError("habitat_sim_api is an interface-only package")
     
-    def next_action_along(self, goal_pos: np.ndarray) -> Optional[Any]:
+    def next_action_along(self, goal_pos: Any) -> Optional[Any]:
         """
         Get the next action to take along the path to the goal.
         
@@ -56,7 +58,7 @@ class GreedyGeodesicFollower:
         """
         raise NotImplementedError("habitat_sim_api is an interface-only package")
     
-    def find_path(self, goal_pos: np.ndarray) -> List[np.ndarray]:
+    def find_path(self, goal_pos: Any) -> List[Any]:
         """
         Find a path to the goal position.
         

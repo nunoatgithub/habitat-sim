@@ -6,11 +6,13 @@
 
 """Visualization utilities for habitat_sim_api."""
 
-from typing import Any, List, Optional
-import numpy as np
+from typing import Any, List, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
-def observations_to_image(observation: Any, info: Any) -> np.ndarray:
+def observations_to_image(observation: Any, info: Any) -> Any:
     """Convert observations to an image."""
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 

@@ -6,8 +6,10 @@
 
 """Common utility functions for habitat_sim_api."""
 
-from typing import Any, List
-import numpy as np
+from typing import Any, List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
 def quat_from_coeffs(coeffs: List[float]) -> Any:
@@ -25,17 +27,17 @@ def quat_to_magnum(quat: Any) -> Any:
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 
 
-def quat_from_angle_axis(angle: float, axis: np.ndarray) -> Any:
+def quat_from_angle_axis(angle: float, axis: Any) -> Any:
     """Create quaternion from angle and axis."""
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 
 
-def quat_rotate_vector(quat: Any, vector: np.ndarray) -> np.ndarray:
+def quat_rotate_vector(quat: Any, vector: Any) -> Any:
     """Rotate a vector by a quaternion."""
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 
 
-def quat_from_two_vectors(v1: np.ndarray, v2: np.ndarray) -> Any:
+def quat_from_two_vectors(v1: Any, v2: Any) -> Any:
     """Create quaternion representing rotation from v1 to v2."""
     raise NotImplementedError("habitat_sim_api is an interface-only package")
 

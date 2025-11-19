@@ -4,14 +4,16 @@
 
 """Sensor noise models for habitat_sim_api."""
 
-from typing import Any, Optional
-import numpy as np
+from typing import Any, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 
 class SensorNoiseModel:
     """Base class for sensor noise models."""
     
-    def __call__(self, observation: np.ndarray) -> np.ndarray:
+    def __call__(self, observation: Any) -> Any:
         """
         Apply noise to an observation.
         

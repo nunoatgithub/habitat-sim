@@ -10,8 +10,10 @@ Agent module for habitat_sim_api.
 Defines agents, their configurations, states, and actions.
 """
 
-from typing import Any, Dict, List, Optional, Union
-import numpy as np
+from typing import Any, Dict, List, Optional, Union, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    import numpy as np
 
 __all__ = ["ActionSpec", "SixDOFPose", "AgentState", "AgentConfiguration", "Agent"]
 
@@ -41,10 +43,10 @@ class SixDOFPose:
     
     def __init__(
         self,
-        position: Optional[np.ndarray] = None,
-        rotation: Optional[Union[np.ndarray, List]] = None
+        position: Optional[Any] = None,
+        rotation: Optional[Union[Any, List]] = None
     ):
-        self.position = position if position is not None else np.zeros(3)
+        self.position = position if position is not None else [0.0, 0.0, 0.0]
         self.rotation = rotation if rotation is not None else [1.0, 0.0, 0.0, 0.0]
 
 
@@ -60,11 +62,11 @@ class AgentState:
     
     def __init__(
         self,
-        position: Optional[np.ndarray] = None,
-        rotation: Optional[Union[np.ndarray, List]] = None,
+        position: Optional[Any] = None,
+        rotation: Optional[Union[Any, List]] = None,
         sensor_states: Optional[Dict[str, SixDOFPose]] = None
     ):
-        self.position = position if position is not None else np.zeros(3)
+        self.position = position if position is not None else [0.0, 0.0, 0.0]
         self.rotation = rotation if rotation is not None else [1.0, 0.0, 0.0, 0.0]
         self.sensor_states = sensor_states if sensor_states is not None else {}
 
