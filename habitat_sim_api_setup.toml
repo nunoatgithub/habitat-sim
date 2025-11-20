@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "habitat-sim-api"
+version = "0.3.3"
+description = "Interface-only package mirroring habitat-sim Python API"
+readme = "habitat_sim_api/README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Meta Platforms, Inc."}
+]
+keywords = ["robotics", "simulation", "embodied-ai", "interface"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/facebookresearch/habitat-sim"
+Documentation = "https://aihabitat.org/docs/habitat-sim/"
+Repository = "https://github.com/facebookresearch/habitat-sim"
+
+[tool.setuptools.packages.find]
+include = ["habitat_sim_api*"]
+
+[tool.setuptools.package-data]
+habitat_sim_api = ["py.typed"]
